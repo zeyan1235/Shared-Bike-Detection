@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO 视频流报警</title>
+</head>
+<body>
+    <h1>YOLO 实时视频流</h1>
+    <img src="/video_feed" style="max-width: 100%; height: auto;">
+    <div id="alert-box" style="color: red; font-weight: bold; display: none;">
+        警报：检测到共享单车！
+    </div>
+    <script>
+        function showAlert() {
+            const alertBox = document.getElementById('alert-box');
+            alertBox.style.display = 'block';
+            setTimeout(() => {
+                alertBox.style.display = 'none';
+            }, 5000); // 显示5秒
+        }
+
+        // 简单的轮询机制（可替换为 WebSocket 实时交互）
+        setInterval(() => {
+            fetch('/alerts.log')
+                .then(response => response.text())
+                .then(data => {
+                    if (data.includes(new Date().toLocaleDateString())) {
+                        showAlert();
+                    }
+                });
+        }, 1000);
+    </script>
+</body>
+</html>

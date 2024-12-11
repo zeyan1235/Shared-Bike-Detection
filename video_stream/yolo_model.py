@@ -1,7 +1,7 @@
 import time
 import json
 from ultralytics import YOLO
-from config import YOLO_MODEL_PATH, ALERT_TARGET, ALERT_FRAMES_THRESHOLD, ALERT_COOLDOWN_TIME
+from config import YOLO_MODEL_PATH, ALERT_FRAMES_THRESHOLD, ALERT_COOLDOWN_TIME
 
 # 递归查找包含 "shared" 的键或值，并统计数量
 def find_shared_in_dict(data, search_key="shared"):
@@ -58,4 +58,4 @@ class YOLOModel:
     def trigger_alert(self):
         print("警报：检测到共享单车！")
         with open("alerts.log", "a") as log_file:
-            log_file.write(f"警报触发时间：{time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+            log_file.write(f"警报触发时间：{time.strftime('%Y-%m-%d %H:%M:%S')}\n") #警报在这里

@@ -1,35 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOLO 视频流报警</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon -->
+
+	<link rel="stylesheet" href="/static/css/css.css" type="text/css" media="all">
+	<!-- modernizr js -->
+	<script src="/static/js/jquery.js"></script>
 </head>
 <body>
-    <h1>YOLO 实时视频流</h1>
-    <img src="/video_feed" style="max-width: 100%; height: auto;">
-    <div id="alert-box" style="color: red; font-weight: bold; display: none;">
-        警报：检测到共享单车！
+    <div class="bg"></div>
+    
+    <div class="header">
+        <div class="main">
+            <div class="main-left">2024 WINTER DESIGNEXOP</div>
+            <div class="main-right">
+                <div class="bounce-animate2">
+                    <img src="/static/images/slider-shape2.png" alt="shape">
+                </div>
+            </div>
+        </div>
     </div>
-    <script>
-        function showAlert() {
-            const alertBox = document.getElementById('alert-box');
-            alertBox.style.display = 'block';
-            setTimeout(() => {
-                alertBox.style.display = 'none';
-            }, 5000); // 显示5秒
-        }
+    <div class="container">
+        <span style="color:#3c8aec; margin-right: 10px;">Shared-Bike</span> Detection & Warning with <span style="font-size: 40px; color:#3c8aec;margin-left: 10px;">IOT</span>
+        <div class="rotate">
+            <img src="/static/images/slider-shape1.png" alt="shape">
+        </div>
+    </div>
+    <div class="conimg">
+        <div class="imgleft">
+            <img src="/static/images/main1.jpg" class="img" alt="shape">
+            <div class="btnl">
+                <a href="/detect">Start Detect <img style="margin-left: 15px;" src="/static/images/next.gif"></a>
+            </div>
+        </div>
+        <div class="imgright">
+            <img src="/static/images/main2.jpg" class="img" alt="shape">
 
-        // 简单的轮询机制（可替换为 WebSocket 实时交互）
-        setInterval(() => {
-            fetch('/alerts.log')
-                .then(response => response.text())
-                .then(data => {
-                    if (data.includes(new Date().toLocaleDateString())) {
-                        showAlert();
-                    }
-                });
-        }, 1000);
-    </script>
+            <div class="btnr">
+                <a href="/learn">Learn More <img style="margin-left: 15px;" src="/static/images/next.gif"></a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
