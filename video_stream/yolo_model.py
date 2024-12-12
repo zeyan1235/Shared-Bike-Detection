@@ -56,6 +56,6 @@ class YOLOModel:
             self.last_alert_time = current_time
         return results[0].plot()
     def trigger_alert(self):
-        print("警报：检测到共享单车！")
+        print("Alarm: Shared Bikes Detected!")
         with open("alerts.log", "a") as log_file:
-            log_file.write(f"警报触发时间：{time.strftime('%Y-%m-%d %H:%M:%S')}\n") #警报在这里
+            log_file.write(f"Alarm: Shared Bikes Detected at{time.strftime('%Y-%m-%d %H:%M:%S')}\n") #警报在这里
